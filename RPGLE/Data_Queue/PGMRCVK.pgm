@@ -1,0 +1,36 @@
+H 
+D DQ_Name         S             10A   Inz('SAMPLEQK')      
+D DQ_Lib          S             10A   Inz('*LIBL')       
+D DQ_DataLen      S              5P 0 Inz                  
+D DQ_Data         S            100A   Inz                  
+D DQ_Wait         S              5P 0 Inz(1)               
+D DQ_KeyOrd       S              2A   Inz('GE')            
+D DQ_KeyLen       S              3P 0 Inz(10)              
+D DQ_KeyData      S             10A   Inz                  
+D DQ_Sndr         S              3P 0 Inz                  
+D DQ_SndrInfo     S             10A   Inz                  
+ *                                                       
+D DQ_Data1        S             50A   Inz                
+ *                                                       
+D QRcvData        PR                  ExtPgm('QRCVDTAQ') 
+D  DQ_Name                      10A                      
+D  DQ_Lib                       10A                      
+D  DQ_DataLen                    5P 0                    
+D  DQ_Data                     100A                      
+D  DQ_Wait                       5P 0                    
+D  DQ_KeyOrd                     2A                      
+D  DQ_KeyLen                     3P 0                    
+D  DQ_KeyData                   10A                      
+D  DQ_Sndr                       3P 0                    
+D  DQ_SndrInfo                  10A                      
+ *                       
+ *                                                                   
+ /Free                                                               
+      DQ_KeyData = ' ';                                           
+      QRcvData(DQ_Name: DQ_Lib: DQ_DataLen: DQ_Data: DQ_Wait:        
+             DQ_KeyOrd: DQ_KeyLen: DQ_KeyData: DQ_Sndr: DQ_SndrInfo);
+      DQ_Data1 = DQ_Data;                                            
+      Dsply  DQ_Data1;                                               
+      *Inlr = *On;                                                   
+ /End-Free                                                           
+ * 
