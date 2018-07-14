@@ -1,6 +1,6 @@
 H
 D DQ_Name         S             10A   Inz('SAMPLEQK')    
-D DQ_Lib          S             10A   Inz('DEVYUS1')     
+D DQ_Lib          S             10A   Inz('*LIBL')     
 D DQ_DataLen      S              5P 0 Inz(100)           
 D DQ_Data         S            100A   Inz                
 D DQ_KeyLen       S              3P 0 Inz(10)            
