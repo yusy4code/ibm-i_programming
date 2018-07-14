@@ -1,0 +1,27 @@
+H
+D DQ_Name         S             10A   Inz('SAMPLEQK')    
+D DQ_Lib          S             10A   Inz('DEVYUS1')     
+D DQ_DataLen      S              5P 0 Inz(100)           
+D DQ_Data         S            100A   Inz                
+D DQ_KeyLen       S              3P 0 Inz(10)            
+D DQ_KeyData      S             10A   Inz                
+ *                                                       
+D InpData         S             40A   Inz                
+ *                                                       
+D QSendData       PR                  ExtPgm('QSNDDTAQ') 
+D                               10A                      
+D                               10A                      
+D                                5P 0                    
+D                              100A                      
+D                                3P 0                    
+D                               10A                      
+ *                                                       
+ /Free                                               
+      Dsply 'Enter Key: ' '' DQ_KeyData;             
+      Dsply 'Enter data: ' '' InpData;               
+      DQ_Data = InpData;                             
+      QSendData(DQ_Name: DQ_Lib: DQ_DataLen: DQ_Data 
+                       : DQ_KeyLen: DQ_KeyData);     
+      *Inlr = *On;                                   
+ /End-Free                                           
+ *
