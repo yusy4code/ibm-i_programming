@@ -1,0 +1,21 @@
+H                                                        
+D DQ_Name         S             10A   Inz('SAMPLEQ')     
+D DQ_Lib          S             10A   Inz('*LIBL')     
+D DQ_DataLen      S              5P 0 Inz(100)           
+D DQ_Data         S            100A   Inz                
+D InpData         S             40A   Inz                
+ *                                                       
+D QSendData       PR                  ExtPgm('QSNDDTAQ') 
+D                               10A                      
+D                               10A                      
+D                                5P 0                    
+D                              100A                      
+ *                                                       
+ *                                                     
+ /Free                                                 
+      Dsply 'Enter data: ' '' InpData;                 
+      DQ_Data = InpData;                               
+      QSendData(DQ_Name: DQ_Lib: DQ_DataLen: DQ_Data); 
+      *Inlr = *On;                                     
+ /End-Free                                             
+ *   
