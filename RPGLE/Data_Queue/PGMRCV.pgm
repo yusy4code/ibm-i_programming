@@ -1,0 +1,23 @@
+H                                                           
+D DQ_Name         S             10A   Inz('SAMPLEQ')        
+D DQ_Lib          S             10A   Inz('*LIBL')        
+D DQ_DataLen      S              5P 0 Inz                   
+D DQ_Data         S            100A   Inz                   
+D DQ_Wait         S              5P 0 Inz(1)                
+ *
+D DQ_Data1        S             50A   Inz                   
+ *                                                          
+D QRcvData        PR                  ExtPgm('QRCVDTAQ')    
+D  DQ_Name                      10A                         
+D  DQ_Lib                       10A                         
+D  DQ_DataLen                    5P 0                       
+D  DQ_Data                     100A                         
+D  DQ_Wait                       5P 0                       
+ *                                                          
+ /Free                                                         
+      QRcvData(DQ_Name: DQ_Lib: DQ_DataLen: DQ_Data: DQ_Wait); 
+      DQ_Data1 = DQ_Data;                                      
+      Dsply  DQ_Data1;                                         
+      *Inlr = *On;                                              
+ /End-Free                                                     
+ *
