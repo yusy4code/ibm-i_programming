@@ -33,3 +33,7 @@ QRCVDTAQ is the API used for receiving data from DTAQ
 PGMRCV.pgm reference code above for receiving data from DTAQ without key
 
 PGMRCVK.pgm reference code above for receiving data from DTAQ with key
+
+IBM Reference:
+
+https://www.ibm.com/support/knowledgecenter/ja/ssw_ibm_i_73/apis/qrcvdtaq.htm
