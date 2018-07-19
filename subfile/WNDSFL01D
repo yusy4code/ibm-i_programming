@@ -1,0 +1,57 @@
+A                                      DSPSIZ(24 80 *DS3)            
+A                                      MOUBTN(*ULD ENTER)            
+A          R WRCD1                     SFL                           
+A            CTLFLD         1Y 0H      SFLCHCCTL                     
+A            COUNTRY       10A  O  2  3                              
+ *                                                                   
+A          R WCTL1                     SFLCTL(WRCD1)                 
+A                                      OVERLAY                       
+A                                      USRRSTDSP                     
+A                                      SFLSNGCHC(*SLTIND)            
+A  50                                  SFLDSP                        
+A  50                                  SFLDSPCTL                     
+A N50                                  SFLCLR                        
+A  50                                  SFLEND(*SCRBAR *MORE)         
+A                                      SFLSIZ(&NBRRECA)              
+A                                      SFLPAG(0004)                  
+A                                      WINDOW(5 8 8 20 *NOMSGLIN)    
+A                                      WDWTITLE((*TEXT ' COUNTRIES '))     
+A                                      WDWTITLE((*TEXT ' ENTER=EXIT ') +   
+A                                      *LEFT *BOTTOM)                      
+A            NBRRECA        5S 0P                                          
+A                                                                          
+A                                                                          
+A          R WRCD2                     SFL                                 
+A            CTLFLD         1Y 0H      SFLCHCCTL                           
+A            CITY          10A  O  2  3                                    
+ *                                                                         
+A          R WCTL2                     SFLCTL(WRCD2)                       
+A                                      TEXT('CITIES SUBFILE')              
+A                                      OVERLAY                             
+A                                      USRRSTDSP                           
+A                                      SFLMLTCHC(*SLTIND)                  
+A  60                                  SFLDSP SFLDSPCTL                    
+A N60                                  SFLCLR                              
+A  60                                  SFLEND(*SCRBAR *MORE)               
+A                                      SFLSIZ(&NBRRECB)                    
+A                                      SFLPAG(0004)                          
+A                                      WINDOW(5 40 8 20 *NOMSGLIN)           
+A                                      WDWTITLE((*TEXT ' CITIES '))          
+A                                      WDWTITLE((*TEXT ' ENTER=EXIT ') +     
+A                                      *LEFT *BOTTOM)                        
+A            NBRRECB        5S 0P                                            
+A                                                                            
+A          R HEADER                                                          
+A                                      OVERLAY                               
+A                                  1  3DATE                                  
+A                                      EDTCDE(Y)                             
+A                                  1 68TIME                                  
+A                                  2 22'Welcome To Double Window SFL'        
+A                                      COLOR(WHT)                            
+A                                      DSPATR(UL)                            
+A          R FOOTER                                                          
+A                                      OVERLAY                               
+A                                 18 12'User space bar to select Country t-  
+A                                      hen press ENTER'                     
+A                                 19 12'User space bar to select multiple - 
+A                                      city then press ENTER'               
