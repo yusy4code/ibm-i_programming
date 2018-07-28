@@ -1,6 +1,7 @@
 H                                         
 D Str             S              5A       
-D Number          S              5S 0     
+D Number          S              5S 0 
+ *
 C     'Start'       Dsply                 
 C                   Eval      Number = 99 
 C                   Eval      Str = 'Hi'  
