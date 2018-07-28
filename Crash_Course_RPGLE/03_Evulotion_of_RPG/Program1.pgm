@@ -1,0 +1,6 @@
+C           'START'   DSPLY                       
+C                     Z-ADD99        NUMBER  50   
+C                     MOVEL'HI'      STR     5    
+C           NUMBER    DSPLY                       
+C           STR       DSPLY                       
+C                     SETON                     LR
