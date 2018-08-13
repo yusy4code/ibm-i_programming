@@ -7,7 +7,7 @@ D i               S              2P 0
     For i=1 to 10;                                   
       Arr(i) = i;                                    
     EndFor;                                          
-    For i=1 to 10;                                   
+    For i=1 to %Elem(Arr);                                   
       Dsply  Arr(i);                                 
     EndFor;                                          
     *Inlr = *On;                                     
